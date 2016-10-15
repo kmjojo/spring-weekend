@@ -31,6 +31,8 @@ public class UserService {
 		String encryptedPassword = securityService.encryptPassword(password);
 		userVO.setUserPassword(encryptedPassword);
 		
+		userVO.setUserId(String.valueOf(System.currentTimeMillis()) + Thread.currentThread().getId());	// 여러 사람이 동시에 눌러도 쓰레드 아이디가 다르므로 겹치지 않는다.
+		
 		int countInsertedUser = userDAO.insertUser(userVO);
 		int countInsertedDetail = userDAO.insertUserDetail(userVO);
 		
