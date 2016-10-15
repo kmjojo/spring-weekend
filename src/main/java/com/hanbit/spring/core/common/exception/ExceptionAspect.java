@@ -1,8 +1,5 @@
 package com.hanbit.spring.core.common.exception;
 
-import java.io.IOException;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.aspectj.lang.ProceedingJoinPoint;
