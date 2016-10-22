@@ -60,6 +60,10 @@ public class UserController {
 		
 		userVO.setUserPassword(StringUtils.EMPTY);// 여기에 "sodyd~" 이렇게 넣으면 객체가 생성되기 때문에 상수를 넣는다.
 		
+		//request.getFileName 이 NULL이면 파일이 등록되지 않았다는 것을 알 수 있다. 따라서 request.getFile()에 NullPointException이 발생할 것이다.
+		// Iterator<String> fileIds = request.getfileNames();
+		// while (fileIds.hasNext()) {/*다음다음~*/}	// 여기서 걸리면 아무 것도 없는 것임
+		
 		return userVO;
 	}
 	

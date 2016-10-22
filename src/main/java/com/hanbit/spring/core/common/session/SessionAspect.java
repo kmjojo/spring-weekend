@@ -16,7 +16,7 @@ public class SessionAspect {
 
 	@Around("@annotation(com.hanbit.spring.core.common.session.SigninRequired)")
 	public Object checkSignin(ProceedingJoinPoint pjp) throws Throwable {
-		Map session = SessionHelper.getSession();
+		Map session = SessionHelper.getSession();	// RequestContextHolder를 써서 가져와도 욈
 		
 		if (session.get("loggedIn") == null) {
 			MethodSignature signature = (MethodSignature) pjp.getSignature();
@@ -30,7 +30,7 @@ public class SessionAspect {
 			
 		}
 		
-		Object returnValue = pjp.proceed();
+		Object returnValue = pjp.proceed();	// 위에서 걸러지지 않으면 계속 실행
 		
 		return returnValue;
 	}
